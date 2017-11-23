@@ -108,5 +108,3 @@ To produce to tidy output data set the following steps were taken:
 * append testing data to training data
 * group data by subject and activity
 * calculate the mean of each measurement within each group
-
-* 
