@@ -17,6 +17,7 @@
 ### Variables in the output data set
 
 Data set name: 03_04_project_export.csv
+Dimensions: 82 columns, 180 rows
 
 * subject: ID of subject performing an activity (1-30)
 * activity_id: ID of performed activity
