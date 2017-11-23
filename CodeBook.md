@@ -99,7 +99,7 @@ Data set name: 03_04_project_export.csv
 
 ### Performed data transformations
 
-To produce to tidy output data set the following steps were taken in the script 03_04_project_script.R. The script makes use of the tidyverse library.
+To produce to tidy output data set the following steps were taken in the script 03_04_project_script.R. The script makes use of the tidyverse library. As most of the steps need to be taken twice for the training and testing data, a function was writen to execute the common steps.
 
 * read in raw text files
 * add descriptive column headers
