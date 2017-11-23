@@ -16,7 +16,7 @@
 
 ### Variables in the output data set
 
-Data set name: xyz.csv
+Data set name: 03_04_project_export.csv
 
 * data_type: groups observations
   * train: observations of the training data set
