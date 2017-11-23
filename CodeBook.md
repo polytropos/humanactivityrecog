@@ -97,3 +97,16 @@ Data set name: 03_04_project_export.csv
 * fBodyBodyGyroJerkMag-std()
 
 
+### Performed data transformations
+
+To produce to tidy output data set the following steps were taken:
+* read in raw text files
+* add descriptive column headers
+* select only relevant columns
+* add row ids
+* merge data based on row ids or specific ids
+* append testing data to training data
+* group data by subject and activity
+* calculate the mean of each measurement within each group
+
+* 
