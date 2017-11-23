@@ -18,9 +18,6 @@
 
 Data set name: 03_04_project_export.csv
 
-* data_type: groups observations
-  * train: observations of the training data set
-  * test: observations of the testing data set
 * subject: ID of subject performing an activity
 * activity_id: ID of performed activity
 * activity_name: name of performed activity
