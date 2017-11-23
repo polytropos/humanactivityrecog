@@ -18,7 +18,7 @@
 
 Data set name: 03_04_project_export.csv
 
-* subject: ID of subject performing an activity
+* subject: ID of subject performing an activity (1-30)
 * activity_id: ID of performed activity
 * activity_name: name of performed activity
   * \[activity_id\]: \[activity_name\]
