@@ -1,14 +1,15 @@
 library(tidyverse)
-#library(tibble)
-#library(stringr)
 
-# set directory (input data is in sub directory)
+# download and unzip data
 setwd("C:/Workarea/R/Data Science")
+temp <- temp
+download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", temp, mode="wb")
+unzip(temp, exdir = "UCI Data")
 
 # read activity and feature ids and names
-activity <- read_delim("UCI HAR Dataset/activity_labels.txt", delim = " ", col_names = FALSE)
+activity <- read_delim("UCI Data/UCI HAR Dataset/activity_labels.txt", delim = " ", col_names = FALSE)
 (activity <- activity %>% rename(activity_id = X1, activity_name = X2))
-feature <- read_delim("UCI HAR Dataset/features.txt", delim = " ", col_names = FALSE)
+feature <- read_delim("UCI Data/UCI HAR Dataset/features.txt", delim = " ", col_names = FALSE)
 (feature <- feature %>% rename(feature_id = X1, feature_name = X2))
 # caution: feature names are not unique!
 feature_name_duplicates <- feature %>% 
@@ -29,12 +30,12 @@ prepare_data <- function (input_file, X1_rename = NULL) {
   }
   out_table <- mutate(out_table, row_id = seq.int(nrow(out_table)))
 }
-train_label <- prepare_data("UCI HAR Dataset/train/y_train.txt", "activity_id")
-train_subject <- prepare_data("UCI HAR Dataset/train/subject_train.txt", "subject_id")
-train_measure <- prepare_data("UCI HAR Dataset/train/X_train.txt")
-test_label <- prepare_data("UCI HAR Dataset/test/y_test.txt", "activity_id")
-test_subject <- prepare_data("UCI HAR Dataset/test/subject_test.txt", "subject_id")
-test_measure <- prepare_data("UCI HAR Dataset/test/X_test.txt")
+train_label <- prepare_data("UCI Data/UCI HAR Dataset/train/y_train.txt", "activity_id")
+train_subject <- prepare_data("UCI Data/UCI HAR Dataset/train/subject_train.txt", "subject_id")
+train_measure <- prepare_data("UCI Data/UCI HAR Dataset/train/X_train.txt")
+test_label <- prepare_data("UCI Data/UCI HAR Dataset/test/y_test.txt", "activity_id")
+test_subject <- prepare_data("UCI Data/UCI HAR Dataset/test/subject_test.txt", "subject_id")
+test_measure <- prepare_data("UCI Data/UCI HAR Dataset/test/X_test.txt")
 
 # the first two columns of the measurements are empty and there are superfluous columns at the end
 offset <- 2
@@ -72,4 +73,4 @@ grouped_means <- data_mean_sd %>%
 dim(grouped_means)
 
 # export grouped means
-write.table(grouped_means, "03_04_project_export.csv", row.names = FALSE)
+write.table(grouped_means, "03_04_project_export.txt", row.names = FALSE)
